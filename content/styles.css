@@ -1,0 +1,44 @@
+body>header {
+    background: #eee;
+    padding: 5px;
+}
+
+body>header>a>img, body>header ul, body>header ul>li  {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+body>footer {
+    background: #eee;
+    padding: 5px;
+    text-align: center;
+}
+
+li.info {
+    background: #7f7;
+}
+
+li.error {
+    background: #f77;
+}
+.post-title {
+    text-align: center;
+    color: #3A6E99;
+    font-family: 'Poller One', cursive;
+}
+.hide {
+    visibility: hidden;
+}
+.container-with-margin-top {
+    margin-top: 15px;
+}
+.comment {
+    margin-left: 8%;
+}
+.no-comments, .without-content{
+    color: #EB6E77;
+}
+.bold {
+    font-weight: bold;
+}
