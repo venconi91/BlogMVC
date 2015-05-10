@@ -26,14 +26,14 @@ class PostsController extends BaseController {
             $this->addErrorMessage("title content or tags field is invalid");
             $this->redirectToUrl("/home/index");
         }
-        
+
         // prevent csrf
         $sessionToken = $_SESSION['create_post_token'];
         $formToken = $_POST['token'];
         if ($sessionToken != $formToken) {
             $this->redirectToUrl("/home/index");
         }
-        
+
         $userId = $_SESSION['userId'];
 
         if ($this->db->create($title, $content, $userId)) {
@@ -48,6 +48,10 @@ class PostsController extends BaseController {
     }
 
     function index($from = 0, $count = 4) {
+        if (!$this->isLogedIn) {
+            $this->redirectToUrl("/account/login");
+        }
+
         if ($from < 0 || $count < 0) {
             $this->redirect("posts", "index");
         }
@@ -60,11 +64,11 @@ class PostsController extends BaseController {
 
         $this->renderView("index");
     }
-    
+
     function search() {
         $searchedTag = $_GET['search'];
         $this->searchedPostsByTag = $this->db->searchAllPostsByTag($searchedTag);
-        
+
         $this->renderView(__FUNCTION__);
     }
 
@@ -75,7 +79,7 @@ class PostsController extends BaseController {
         if (!isset($_SESSION['userId'])) {
             $this->redirectToUrl("/account/login");
         }
-        
+
         $userId = $_SESSION['userId'];
         $this->userPostsByTag = $this->db->getUserPostsByTag($tagName, $userId);
 
@@ -95,4 +99,5 @@ class PostsController extends BaseController {
 
         $this->redirectToUrl("/home/index");
     }
+
 }

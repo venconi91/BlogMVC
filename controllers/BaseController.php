@@ -1,12 +1,13 @@
 <?php
 
 abstract class BaseController {
+
     protected $controllerName;
     protected $layoutName = DEFAULT_LAYOUT;
     protected $isViewRendered = false;
     protected $isPost = false;
     protected $isLogedIn;
-    
+
     function __construct($controllerName) {
         $this->controllerName = $controllerName;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -28,9 +29,9 @@ abstract class BaseController {
 
     public function renderView($viewName = "Index", $includeLayout = true) {
         if (!$this->isViewRendered) {
-            
+
             $viewFileName = 'views/' . $this->controllerName
-                . '/' . $viewName . '.php';
+                    . '/' . $viewName . '.php';
             if ($includeLayout) {
                 $headerFile = 'views/layouts/' . $this->layoutName . '/header.php';
                 include_once($headerFile);
@@ -50,7 +51,7 @@ abstract class BaseController {
     }
 
     public function redirect(
-            $controllerName, $actionName = null, $params = null) {
+    $controllerName, $actionName = null, $params = null) {
         $url = '/' . urlencode($controllerName);
         if ($actionName != null) {
             $url .= '/' . urlencode($actionName);
@@ -61,14 +62,12 @@ abstract class BaseController {
         }
         $this->redirectToUrl($url);
     }
-    
-    
+
     function addMessage($msg, $type) {
         if (!isset($_SESSION['messages'])) {
             $_SESSION['messages'] = array();
         };
-        array_push($_SESSION['messages'],
-            array('text' => $msg, 'type' => $type));
+        array_push($_SESSION['messages'], array('text' => $msg, 'type' => $type));
     }
 
     function addInfoMessage($msg) {
@@ -78,16 +77,17 @@ abstract class BaseController {
     function addErrorMessage($msg) {
         $this->addMessage($msg, 'danger');
     }
-    
+
     function isValid($field) {
-        
+
         if ($field == NULL) {
             return false;
         }
         if (strlen($field) < 3) {
             return false;
         }
-        
+
         return true;
     }
+
 }

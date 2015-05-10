@@ -17,7 +17,7 @@ class AccountController extends BaseController {
                 $this->addErrorMessage("invalid username or password");
                 $this->redirect("account", "register");
             }
-            
+
             $isRegistered = $this->db->register($username, $password);
             if ($isRegistered) {
                 $_SESSION['username'] = $username;

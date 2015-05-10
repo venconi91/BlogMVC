@@ -43,7 +43,7 @@ class PostsModel extends BaseModel {
 
         return $createStatement->affected_rows > 0;
     }
-    
+
     function insertTag($tag) {
         $createStatement = self::$db->prepare("INSERT IGNORE INTO tags (tag) VALUES (?)");
         $createStatement->bind_param("s", $tag);
@@ -68,7 +68,7 @@ class PostsModel extends BaseModel {
 
         return $statement->fetch_all(MYSQLI_ASSOC);
     }
-    
+
     function searchAllPostsByTag($tagName) {
         $tagName = mysql_real_escape_string($tagName);
         $sql = "select p.title, p.id from posts p join posts_tags pt on p.id = pt.post_id join tags t on pt.tag_id = t.id where t.tag = '$tagName' order by p.id DESC";
@@ -76,4 +76,5 @@ class PostsModel extends BaseModel {
 
         return $statement->fetch_all(MYSQLI_ASSOC);
     }
+
 }
