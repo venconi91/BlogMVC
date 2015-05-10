@@ -17,8 +17,8 @@ class PostsModel extends BaseModel {
     }
 
     function getAllFromAuthorWithPaging($from, $count, $userId) {
-
         $statement = self::$db->query("SELECT id,title FROM posts where user_id=$userId ORDER BY id DESC LIMIT $from, $count");
+        
         return $statement->fetch_all(MYSQLI_ASSOC);
     }
 

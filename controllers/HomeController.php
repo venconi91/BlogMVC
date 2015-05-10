@@ -15,7 +15,8 @@ class HomeController extends BaseController {
         }
         
         $userId = $_SESSION['userId'];
-
+        
+        //create hiden field with unique value to prevent XSRF
         $token = md5(uniqid());
         $this->token = $token;
         $_SESSION['create_post_token'] = $token;

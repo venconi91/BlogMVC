@@ -18,7 +18,9 @@ class CommentsController extends BaseController {
             $this->addErrorMessage("invalid content or author");
             $this->redirectToUrl("/posts/view/$postId");
         }
+        
         $createCommentResult = $this->db->create($postId, $content, $visitor_name, $visitor_email);
+        
         if ($createCommentResult) {
             $this->addInfoMessage("comment created successfully");
         } else {

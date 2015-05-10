@@ -18,7 +18,6 @@ class PostsController extends BaseController {
 
     function create() {
         $title = $_POST['title'];
-        $this->isValid($title);
         $content = $_POST['content'];
         $tags = $_POST['tags'];
 

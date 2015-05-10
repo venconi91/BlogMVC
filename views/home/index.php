@@ -50,9 +50,9 @@
                 <div class="row">
                     <div class="bs-component">
                         <div class="list-group">
-                            <a href="#" class="list-group-item active">
+                            <p class="list-group-item active">
                                 Recent Posts
-                            </a>
+                            </p>
                             <?php foreach ($this->posts as $post): ?>
                                 <a href="/posts/view/<?php echo $post['id'] ?>" class="list-group-item"><?php echo htmlspecialchars($post['title']) ?></a>
                                 <?php endforeach; ?>
@@ -64,9 +64,9 @@
                 <div class="row">
                     <div class="bs-component">
                         <div class="list-group">
-                            <a href="#" class="list-group-item active">
+                            <p class="list-group-item active">
                                 Tags
-                            </a>
+                            </p>
                             <?php foreach ($this->tags as $tag): ?>
                                 <a href="/posts/viewByTag/<?php echo $tag['tag'] ?>" class="list-group-item"><?php echo htmlspecialchars($tag['tag']) ?></a>
                                 <?php endforeach; ?>
