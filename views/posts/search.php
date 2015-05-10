@@ -1,5 +1,3 @@
-<?php var_dump($this->searchedPostsByTag)?>
-
 <div class="container" id="container-with-margin-top">
     <?php if (sizeof($this->searchedPostsByTag) == 0) { ?>
         <div class="row">
