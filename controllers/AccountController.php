@@ -41,7 +41,7 @@ class AccountController extends BaseController {
                 $this->addInfoMessage("successful login");
                 $this->redirect("home", "index");
             } else {
-                $this->addErrorMessage("login error");
+                $this->addErrorMessage("username or password is invalid");
                 $this->redirect("account", "login");
             }
         }

@@ -2,8 +2,8 @@
     <?php if (sizeof($this->allPosts) == 0) { ?>
         <div class="row container-with-margin-top">
             <div class="col-md-8 col-md-offset-2">
-                <div><p>No posts yet..</p></div>
-                <div><a href="/home/index">Create you first post</a></div>
+                <div><p>No posts here yet..</p></div>
+                <div><a href="/home/index">Create your post</a></div>
             </div>
         </div>
     <?php } ?>

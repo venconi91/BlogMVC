@@ -13,7 +13,6 @@
                     <div class="bs-component">
                         <div class="well">
                             <?php echo htmlspecialchars($this->postsWithComments[0]['post_content']) ?>
-<!--                            <div><span class="pull-right small">right test author </span></div>-->
                         </div>
                         <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
 
@@ -29,7 +28,7 @@
                             <?php } else { ?>
                                 <div>
                                     <p class="list-group-item-text"><?php echo htmlspecialchars($comment['comment_content']) ?></p>
-                                    <p><span class="pull-left small">Name:  <?php echo htmlspecialchars($comment['visitor_name']) ?></span><span class="pull-right small">Email:  <?php echo htmlspecialchars($comment['visitor_email']) ?></span></p>
+                                    <p class="bold"><span class="pull-left small">Name:  <?php echo htmlspecialchars($comment['visitor_name']) ?></span><span class="pull-right small">Email:  <?php echo htmlspecialchars($comment['visitor_email']) ?></span></p>
                                 </div>
                             <?php } ?>
                         </div>
@@ -44,7 +43,7 @@
                             <fieldset>
                                 <legend>Create new Comment</legend>
                                 <div class="form-group">
-                                    <label for="commentContent" class="col-lg-2 control-label">Title</label>
+                                    <label for="commentContent" class="col-lg-2 control-label">Content</label>
                                     <div class="col-lg-10">
                                         <textarea rows="5" name ="content" class="form-control" id="commentContent" placeholder="Content"></textarea>
                                     </div>
